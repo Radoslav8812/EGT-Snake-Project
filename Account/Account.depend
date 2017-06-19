@@ -1,0 +1,75 @@
+# depslib dependency file v1.0
+1494349671 source:c:\users\folio\desktop\examples\nasledqvane\account\main.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	<Account.h>
+	<SavingsAccount.h>
+	<CheckingAccount.h>
+
+1494329249 source:c:\users\folio\desktop\examples\nasledqvane\account\src\account.cpp
+	"Account.h"
+
+1494328957 c:\users\folio\desktop\examples\nasledqvane\account\include\account.h
+	<iostream>
+	<string>
+
+1494329732 c:\users\folio\desktop\examples\nasledqvane\account\include\savingsaccount.h
+	"Account.h"
+	<iostream>
+	<string>
+
+1494336610 c:\users\folio\desktop\examples\nasledqvane\account\include\checkingaccount.h
+	<iostream>
+	<string>
+	"Account.h"
+
+1494346917 source:c:\users\folio\desktop\examples\nasledqvane\account\src\checkingaccount.cpp
+	"CheckingAccount.h"
+	<iostream>
+	<string>
+	"Account.h"
+
+1494347216 source:c:\users\folio\desktop\examples\nasledqvane\account\src\savingsaccount.cpp
+	"SavingsAccount.h"
+	"Account.h"
+	<iostream>
+	<string>
+
+1494349671 source:d:\egt course\examples\nasledqvane\account\main.cpp
+	<iostream>
+	<iomanip>
+	<string>
+	<Account.h>
+	<SavingsAccount.h>
+	<CheckingAccount.h>
+
+1494328957 d:\egt course\examples\nasledqvane\account\include\account.h
+	<iostream>
+	<string>
+
+1494329732 d:\egt course\examples\nasledqvane\account\include\savingsaccount.h
+	"Account.h"
+	<iostream>
+	<string>
+
+1494336610 d:\egt course\examples\nasledqvane\account\include\checkingaccount.h
+	<iostream>
+	<string>
+	"Account.h"
+
+1494329249 source:d:\egt course\examples\nasledqvane\account\src\account.cpp
+	"Account.h"
+
+1494346917 source:d:\egt course\examples\nasledqvane\account\src\checkingaccount.cpp
+	"CheckingAccount.h"
+	<iostream>
+	<string>
+	"Account.h"
+
+1494347216 source:d:\egt course\examples\nasledqvane\account\src\savingsaccount.cpp
+	"SavingsAccount.h"
+	"Account.h"
+	<iostream>
+	<string>
+

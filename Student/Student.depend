@@ -1,0 +1,134 @@
+# depslib dependency file v1.0
+1495796561 source:c:\users\folio\desktop\egt course\examples\file procesing\student\student.cpp
+	"Student.h"
+	<iostream>
+	<string>
+
+1495796561 c:\users\folio\desktop\egt course\examples\file procesing\student\student.h
+	<iostream>
+
+1495796707 source:c:\users\folio\desktop\egt course\examples\file procesing\student\main.cpp
+	<iostream>
+	<string>
+	<vector>
+	"Student.h"
+	<fstream>
+
+1497203458 source:d:\egt course\examples\file procesing\student\main.cpp
+	<iostream>
+	<string>
+	<vector>
+	"Student.h"
+	"pugixml.hpp"
+	"Operations.h"
+
+1497201488 d:\egt course\examples\file procesing\student\student.h
+	<iostream>
+
+1497203801 source:d:\egt course\examples\file procesing\student\operations.cpp
+	"Operations.h"
+	"pugixml.hpp"
+	<iostream>
+	<string>
+	<vector>
+	<cstdlib>
+
+1497203506 d:\egt course\examples\file procesing\student\operations.h
+	<iostream>
+	<string>
+	<vector>
+	<cstdlib>
+	"Student.h"
+	"pugixml.hpp"
+
+1495475700 d:\egt course\examples\file procesing\student\pugixml.hpp
+	"pugiconfig.hpp"
+	<stddef.h>
+	<exception>
+	<iterator>
+	<iosfwd>
+	<string>
+
+1495475694 d:\egt course\examples\file procesing\student\pugiconfig.hpp
+
+1495475697 source:d:\egt course\examples\file procesing\student\pugixml.cpp
+	"pugixml.hpp"
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<assert.h>
+	<limits.h>
+	<wchar.h>
+	<math.h>
+	<float.h>
+	<setjmp.h>
+	<istream>
+	<ostream>
+	<string>
+	<new>
+	<stdint.h>
+
+1497203543 source:d:\egt course\examples\file procesing\student\student.cpp
+	"Student.h"
+	<iostream>
+	<string>
+
+1497255351 source:c:\users\folio\desktop\kontrolno\test\student\main.cpp
+	<iostream>
+	<string>
+	<vector>
+	"Student.h"
+	"pugixml.hpp"
+	"Operations.h"
+
+1497208098 c:\users\folio\desktop\kontrolno\test\student\student.h
+	<iostream>
+
+1495475700 c:\users\folio\desktop\kontrolno\test\student\pugixml.hpp
+	"pugiconfig.hpp"
+	<stddef.h>
+	<exception>
+	<iterator>
+	<iosfwd>
+	<string>
+
+1495475694 c:\users\folio\desktop\kontrolno\test\student\pugiconfig.hpp
+
+1497255211 c:\users\folio\desktop\kontrolno\test\student\operations.h
+	<iostream>
+	<string>
+	<vector>
+	<cstdlib>
+	"Student.h"
+	"pugixml.hpp"
+
+1497256914 source:c:\users\folio\desktop\kontrolno\test\student\operations.cpp
+	"Operations.h"
+	"pugixml.hpp"
+	<iostream>
+	<string>
+	<vector>
+	<cstdlib>
+
+1495475697 source:c:\users\folio\desktop\kontrolno\test\student\pugixml.cpp
+	"pugixml.hpp"
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<assert.h>
+	<limits.h>
+	<wchar.h>
+	<math.h>
+	<float.h>
+	<setjmp.h>
+	<istream>
+	<ostream>
+	<string>
+	<new>
+	<stdint.h>
+
+1497203543 source:c:\users\folio\desktop\kontrolno\test\student\student.cpp
+	"Student.h"
+	<iostream>
+	<string>
+

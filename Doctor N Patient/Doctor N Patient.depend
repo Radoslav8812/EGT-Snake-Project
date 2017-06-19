@@ -1,0 +1,53 @@
+# depslib dependency file v1.0
+1494262840 source:c:\users\folio\desktop\examples\kompoziciq\doctor n patient\main.cpp
+	<iostream>
+	<string>
+	<vector>
+	"Doctor.h"
+	"Patient.h"
+
+1494259645 source:c:\users\folio\desktop\examples\kompoziciq\doctor n patient\src\patient.cpp
+	"Patient.h"
+
+1494259695 c:\users\folio\desktop\examples\kompoziciq\doctor n patient\include\patient.h
+	<iostream>
+	<string>
+
+1494262238 source:c:\users\folio\desktop\examples\kompoziciq\doctor n patient\src\doctor.cpp
+	"Doctor.h"
+	"Patient.h"
+	<iostream>
+	<string>
+
+1494262136 c:\users\folio\desktop\examples\kompoziciq\doctor n patient\include\doctor.h
+	<iostream>
+	<string>
+	<vector>
+	"Patient.h"
+
+1494262840 source:d:\egt course\examples\kompoziciq\doctor n patient\main.cpp
+	<iostream>
+	<string>
+	<vector>
+	"Doctor.h"
+	"Patient.h"
+
+1494262136 d:\egt course\examples\kompoziciq\doctor n patient\include\doctor.h
+	<iostream>
+	<string>
+	<vector>
+	"Patient.h"
+
+1494259695 d:\egt course\examples\kompoziciq\doctor n patient\include\patient.h
+	<iostream>
+	<string>
+
+1494262238 source:d:\egt course\examples\kompoziciq\doctor n patient\src\doctor.cpp
+	"Doctor.h"
+	"Patient.h"
+	<iostream>
+	<string>
+
+1494259645 source:d:\egt course\examples\kompoziciq\doctor n patient\src\patient.cpp
+	"Patient.h"
+

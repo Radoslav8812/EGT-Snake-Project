@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1493925391 source:c:\users\folio\desktop\examples\classes\savingaccount\src\savingaccount.cpp
+	"SavingAccount.h"
+	<iostream>
+	<string>
+	<iomanip>
+
+1493925237 c:\users\folio\desktop\examples\classes\savingaccount\include\savingaccount.h
+	<iostream>
+	<string>
+
+1497897885 source:d:\egt course\examples\classes\savingaccount\main.cpp
+	<string>
+	<iostream>
+	"SavingAccount.h"
+	<iomanip>
+
+1497898005 d:\egt course\examples\classes\savingaccount\include\savingaccount.h
+	<iostream>
+	<string>
+
+1497898005 source:d:\egt course\examples\classes\savingaccount\src\savingaccount.cpp
+	"SavingAccount.h"
+	<iostream>
+	<string>
+	<iomanip>
+

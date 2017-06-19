@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1495965287 source:c:\users\folio\desktop\egt course\examples\stl\zad 8\main.cpp
+	<iostream>
+	<vector>
+	<map>
+

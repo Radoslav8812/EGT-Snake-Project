@@ -1,0 +1,63 @@
+# depslib dependency file v1.0
+1493309223 source:c:\users\folio\desktop\examples\classes\face\main.cpp
+	<iostream>
+	"Eyes.h"
+	"Nose.h"
+	"Face.h"
+
+1493309111 c:\users\folio\desktop\examples\classes\face\include\eyes.h
+	<string>
+
+1493309675 c:\users\folio\desktop\examples\classes\face\include\nose.h
+	"Eyes.h"
+	"Nose.h"
+
+1493309638 c:\users\folio\desktop\examples\classes\face\include\face.h
+	<iostream>
+	"Nose.h"
+	"Eyes.h"
+
+1493309545 source:c:\users\folio\desktop\examples\classes\face\src\eyes.cpp
+	"Eyes.h"
+	<iostream>
+	<string>
+
+1493310110 source:c:\users\folio\desktop\examples\classes\face\src\face.cpp
+	"Face.h"
+	<iostream>
+
+1493309803 source:c:\users\folio\desktop\examples\classes\face\src\nose.cpp
+	"Nose.h"
+	<iostream>
+
+1493337059 source:d:\egt course\examples\classes\face\main.cpp
+	<iostream>
+	"Eyes.h"
+	"Nose.h"
+	"Face.h"
+
+1493309111 d:\egt course\examples\classes\face\include\eyes.h
+	<string>
+
+1493309675 d:\egt course\examples\classes\face\include\nose.h
+	"Eyes.h"
+	"Nose.h"
+
+1493309638 d:\egt course\examples\classes\face\include\face.h
+	<iostream>
+	"Nose.h"
+	"Eyes.h"
+
+1493309545 source:d:\egt course\examples\classes\face\src\eyes.cpp
+	"Eyes.h"
+	<iostream>
+	<string>
+
+1493310110 source:d:\egt course\examples\classes\face\src\face.cpp
+	"Face.h"
+	<iostream>
+
+1493309803 source:d:\egt course\examples\classes\face\src\nose.cpp
+	"Nose.h"
+	<iostream>
+

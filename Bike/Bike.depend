@@ -1,0 +1,93 @@
+# depslib dependency file v1.0
+1493561401 source:c:\users\folio\desktop\examples\classes\kompoziciq\bike\main.cpp
+	<iostream>
+	"Bike.h"
+	"Chain.h"
+	"Tyres.h"
+	<string>
+
+1493735370 c:\users\folio\desktop\examples\classes\kompoziciq\bike\include\bike.h
+	"Chain.h"
+	"Tyres.h"
+	<iostream>
+	<string>
+
+1493735370 c:\users\folio\desktop\examples\classes\kompoziciq\bike\include\chain.h
+	<iostream>
+	<string>
+
+1493735370 c:\users\folio\desktop\examples\classes\kompoziciq\bike\include\tyres.h
+	<iostream>
+
+1493627380 source:c:\users\folio\desktop\examples\classes\kompoziciq\bike\src\bike.cpp
+	"Bike.h"
+	<string>
+	<iostream>
+
+1493561707 source:c:\users\folio\desktop\examples\classes\kompoziciq\bike\src\chain.cpp
+	"Chain.h"
+	<iostream>
+	<string>
+
+1493561764 source:c:\users\folio\desktop\examples\classes\kompoziciq\bike\src\tyres.cpp
+	"Tyres.h"
+
+1493561401 source:c:\users\folio\desktop\examples\kompoziciq\bike\main.cpp
+	<iostream>
+	"Bike.h"
+	"Chain.h"
+	"Tyres.h"
+	<string>
+
+1493735370 c:\users\folio\desktop\examples\kompoziciq\bike\include\bike.h
+	"Chain.h"
+	"Tyres.h"
+	<iostream>
+	<string>
+
+1493735370 c:\users\folio\desktop\examples\kompoziciq\bike\include\chain.h
+	<iostream>
+	<string>
+
+1493735370 c:\users\folio\desktop\examples\kompoziciq\bike\include\tyres.h
+	<iostream>
+
+1493627380 source:c:\users\folio\desktop\examples\kompoziciq\bike\src\bike.cpp
+	"Bike.h"
+	<string>
+	<iostream>
+
+1493561707 source:c:\users\folio\desktop\examples\kompoziciq\bike\src\chain.cpp
+	"Chain.h"
+	<iostream>
+	<string>
+
+1493561764 source:c:\users\folio\desktop\examples\kompoziciq\bike\src\tyres.cpp
+	"Tyres.h"
+
+1493627380 source:d:\egt course\examples\kompoziciq\bike\src\bike.cpp
+	"Bike.h"
+	<string>
+	<iostream>
+
+1493735370 d:\egt course\examples\kompoziciq\bike\include\bike.h
+	"Chain.h"
+	"Tyres.h"
+	<iostream>
+	<string>
+
+1493735370 d:\egt course\examples\kompoziciq\bike\include\chain.h
+	<iostream>
+	<string>
+
+1493735370 d:\egt course\examples\kompoziciq\bike\include\tyres.h
+	<iostream>
+
+1493561707 source:d:\egt course\examples\kompoziciq\bike\src\chain.cpp
+	"Chain.h"
+	<iostream>
+	<string>
+
+1493561764 source:d:\egt course\examples\kompoziciq\bike\src\tyres.cpp
+	"Tyres.h"
+

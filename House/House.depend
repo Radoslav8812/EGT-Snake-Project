@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1493567658 source:c:\users\folio\desktop\examples\classes\kompoziciq\house\main.cpp
+	<iostream>
+	<string>
+	"Doors.h"
+	"Windows.h"
+	"House.h"
+
+1493567658 c:\users\folio\desktop\examples\classes\kompoziciq\house\include\doors.h
+	<iostream>
+	<string>
+
+1493567658 c:\users\folio\desktop\examples\classes\kompoziciq\house\include\windows.h
+	<iostream>
+	<string>
+
+1493567821 c:\users\folio\desktop\examples\classes\kompoziciq\house\include\house.h
+	"Doors.h"
+	"Windows.h"
+	<iostream>
+	<string>
+
+1493567658 source:c:\users\folio\desktop\examples\classes\kompoziciq\house\src\doors.cpp
+	"Doors.h"
+	<iostream>
+	<string>
+
+1493567658 source:d:\egt course\examples\kompoziciq\house\src\doors.cpp
+	"Doors.h"
+	<iostream>
+	<string>
+
+1493567899 source:d:\egt course\examples\kompoziciq\house\src\house.cpp
+	"House.h"
+	<iostream>
+	<string>
+
