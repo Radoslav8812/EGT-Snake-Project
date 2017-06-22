@@ -1,6 +1,0 @@
-# depslib dependency file v1.0
-1495785514 source:d:\egt course\examples\file procesing\wordgenerator\main.cpp
-	<iostream>
-	<fstream>
-	<cstdlib>
-
