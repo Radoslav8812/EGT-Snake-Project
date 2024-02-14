@@ -1,0 +1,162 @@
+﻿  Card.cpp
+  Deck.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xmemory(930,20): error C2338: static_assert failed: 'The C++ Standard forbids allocators for reference elements because of [allocator.requirements].'
+  (compiling source file 'Deck.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xmemory(930,20):
+  the template instantiation context (the oldest one first) is
+  	C:\Users\User\Desktop\VS CPP Projects\BlackJack\Deck.h(13,16):
+  	see reference to class template instantiation 'std::vector<Card &,std::allocator<Card &>>' being compiled
+  	C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(442,26):
+  	see reference to alias template instantiation 'std::_Rebind_alloc_t<_Alloc,_Ty>' being compiled
+          with
+          [
+              _Alloc=std::allocator<Card &>,
+              _Ty=Card &
+          ]
+  	C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xmemory(774,69):
+  	see reference to class template instantiation 'std::allocator_traits<_Alloc>' being compiled
+          with
+          [
+              _Alloc=std::allocator<Card &>
+          ]
+  	C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xmemory(750,27):
+  	see reference to class template instantiation 'std::_Default_allocator_traits<_Alloc>' being compiled
+          with
+          [
+              _Alloc=std::allocator<Card &>
+          ]
+  	C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xmemory(653,45):
+  	see reference to class template instantiation 'std::allocator<Card &>' being compiled
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xmemory(938,69): error C2528: 'abstract declarator': you cannot create a pointer to a reference
+  (compiling source file 'Deck.cpp')
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xmemory(939,75): error C2528: 'abstract declarator': you cannot create a pointer to a reference
+  (compiling source file 'Deck.cpp')
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xmemory(957,60): error C2528: 'address': you cannot create a pointer to a reference
+  (compiling source file 'Deck.cpp')
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xmemory(961,66): error C2528: 'address': you cannot create a pointer to a reference
+  (compiling source file 'Deck.cpp')
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xmemory(974,45): error C2528: '_Ptr': you cannot create a pointer to a reference
+  (compiling source file 'Deck.cpp')
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xmemory(980,70): error C2528: 'allocate': you cannot create a pointer to a reference
+  (compiling source file 'Deck.cpp')
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xmemory(993,96): error C2528: 'allocate': you cannot create a pointer to a reference
+  (compiling source file 'Deck.cpp')
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xmemory(655,42): error C2528: 'abstract declarator': you cannot create a pointer to a reference
+  (compiling source file 'Deck.cpp')
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xmemory(656,48): error C2528: 'abstract declarator': you cannot create a pointer to a reference
+  (compiling source file 'Deck.cpp')
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xmemory(675,1): error C2528: '<template-parameter>': you cannot create a pointer to a reference
+  (compiling source file 'Deck.cpp')
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xmemory(689,1): error C2528: '<template-parameter>': you cannot create a pointer to a reference
+  (compiling source file 'Deck.cpp')
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(448,19): error C2338: static_assert failed: 'The C++ Standard forbids containers of non-object types because of [container.requirements].'
+  (compiling source file 'Deck.cpp')
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xmemory(787,89): error C2528: 'abstract declarator': you cannot create a pointer to a reference
+  (compiling source file 'Deck.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xmemory(787,89):
+  the template instantiation context (the oldest one first) is
+  	C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(599,50):
+  	see reference to variable template 'const bool _Is_simple_alloc_v<std::allocator<Card &> >' being compiled
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xmemory(784,13): error C2528: '<template-parameter>': you cannot create a pointer to a reference
+  (compiling source file 'Deck.cpp')
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xmemory(788,101): error C2528: 'abstract declarator': you cannot create a pointer to a reference
+  (compiling source file 'Deck.cpp')
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(600,67): error C2528: '<template-parameter>': you cannot create a pointer to a reference
+  (compiling source file 'Deck.cpp')
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(874,23): error C2535: 'void std::vector<Card &,std::allocator<Card &>>::push_back(_Ty)': member function already defined or declared
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(874,23): error C2535:         with
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(874,23): error C2535:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(874,23): error C2535:             _Ty=Card &
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(874,23): error C2535:         ]
+  (compiling source file 'Deck.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(870,23):
+  see declaration of 'std::vector<Card &,std::allocator<Card &>>::push_back'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(1004,27): error C2535: 'std::_Vector_iterator<std::_Vector_val<std::_Simple_types<_Ty>>> std::vector<_Ty,std::allocator<_Ty>>::insert(std::_Vector_const_iterator<std::_Vector_val<std::_Simple_types<_Ty>>>,_Ty)': member function already defined or declared
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(1004,27): error C2535:         with
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(1004,27): error C2535:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(1004,27): error C2535:             _Ty=Card &
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(1004,27): error C2535:         ]
+  (compiling source file 'Deck.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(1000,27):
+  see declaration of 'std::vector<Card &,std::allocator<Card &>>::insert'
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(1794,34): error C2528: 'data': you cannot create a pointer to a reference
+  (compiling source file 'Deck.cpp')
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(1798,40): error C2528: 'data': you cannot create a pointer to a reference
+  (compiling source file 'Deck.cpp')
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xmemory(796,39): error C2528: 'abstract declarator': you cannot create a pointer to a reference
+  (compiling source file 'Deck.cpp')
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xmemory(796,39):
+  the template instantiation context (the oldest one first) is
+  	C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(2206,41):
+  	see reference to class template instantiation 'std::_Compressed_pair<std::allocator<Card &>,std::_Vector_val<std::_Simple_types<_Ty>>,true>' being compiled
+          with
+          [
+              _Ty=Card &
+          ]
+  	C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xmemory(1516,10):
+  	see reference to class template instantiation 'std::_Vector_val<std::_Simple_types<_Ty>>' being compiled
+          with
+          [
+              _Ty=Card &
+          ]
+  	C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(388,50):
+  	see reference to class template instantiation 'std::_Simple_types<_Ty>' being compiled
+          with
+          [
+              _Ty=Card &
+          ]
+  
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\xmemory(797,45): error C2528: 'abstract declarator': you cannot create a pointer to a reference
+  (compiling source file 'Deck.cpp')
+  
+C:\Users\User\Desktop\VS CPP Projects\BlackJack\Card.h(8,11): error C2011: 'Card': 'class' type redefinition
+  (compiling source file 'Deck.cpp')
+  C:\Users\User\Desktop\VS CPP Projects\BlackJack\Card.h(8,7):
+  see declaration of 'Card'
+  
+C:\Users\User\Desktop\VS CPP Projects\BlackJack\Deck.cpp(37,8): error C2079: 'currentCard' uses undefined class 'Card'
+C:\Users\User\Desktop\VS CPP Projects\BlackJack\Deck.cpp(37,22): error C2440: 'initializing': cannot convert from 'initializer list' to 'int'
+  C:\Users\User\Desktop\VS CPP Projects\BlackJack\Deck.cpp(37,22):
+  The initializer contains too many elements
+  
+C:\Users\User\Desktop\VS CPP Projects\BlackJack\Deck.cpp(38,11): error C2664: 'void std::vector<Card &,std::allocator<Card &>>::push_back(_Ty)': cannot convert argument 1 from 'int' to '_Ty'
+C:\Users\User\Desktop\VS CPP Projects\BlackJack\Deck.cpp(38,11): error C2664:         with
+C:\Users\User\Desktop\VS CPP Projects\BlackJack\Deck.cpp(38,11): error C2664:         [
+C:\Users\User\Desktop\VS CPP Projects\BlackJack\Deck.cpp(38,11): error C2664:             _Ty=Card &
+C:\Users\User\Desktop\VS CPP Projects\BlackJack\Deck.cpp(38,11): error C2664:         ]
+  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\vector(870,23):
+  see declaration of 'std::vector<Card &,std::allocator<Card &>>::push_back'
+  C:\Users\User\Desktop\VS CPP Projects\BlackJack\Deck.cpp(38,11):
+  while trying to match the argument list '(int)'
+  
+C:\Users\User\Desktop\VS CPP Projects\BlackJack\Deck.cpp(52,13): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\User\Desktop\VS CPP Projects\BlackJack\Deck.cpp(62,13): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\User\Desktop\VS CPP Projects\BlackJack\Deck.cpp(78,30): error C2528: '<template-parameter>': you cannot create a pointer to a reference
+C:\Users\User\Desktop\VS CPP Projects\BlackJack\Deck.cpp(79,3): error C2027: use of undefined type 'Card'
+  C:\Users\User\Desktop\VS CPP Projects\BlackJack\Card.h(8,7):
+  see declaration of 'Card'
+  
+  Player.cpp
+  Generating Code...
+C:\Users\User\Desktop\VS CPP Projects\BlackJack\Player.cpp(62,1): error C4700: uninitialized local variable 'dealerPoints' used
