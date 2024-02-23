@@ -347,9 +347,6 @@ SnakeGame::~SnakeGame() {
 
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
-	SDL_DestroyTexture(infoTexture); // Add this line
+	SDL_DestroyTexture(infoTexture);
 	SDL_Quit();
 }
-// 1) zvuk - po-tiho background, po-silni efekti
-// 2) butonite za start i info , ako moje v drug class
- //3)
