@@ -330,11 +330,7 @@ void SnakeGame::render() {
 		SDL_Surface* pointsSurface = TTF_RenderText_Blended(font, pointsText.c_str(), greenColor);// Render points texture
 		SDL_Texture* pointsTexture = SDL_CreateTextureFromSurface(renderer, pointsSurface);
 
-		SDL_Rect pointsRect = { COLS * TILE_SIZE + 10, 10, pointsSurface->w, pointsSurface->h }; // Set the destination rectangle in the button area
-
-		//if(state == gameOver) {
-		// gameOVertLogic()
-		//}
+		SDL_Rect pointsRect = { COLS * TILE_SIZE + 10, 10, pointsSurface->w, pointsSurface->h }; 
 
 		SDL_RenderCopy(renderer, pointsTexture, NULL, &pointsRect);// Render points texture to the renderer
 
