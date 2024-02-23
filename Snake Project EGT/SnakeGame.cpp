@@ -314,6 +314,10 @@ void SnakeGame::render() {
 	SDL_RenderClear(renderer);
 
 	if (inInfoMode) {
+<<<<<<< HEAD
+=======
+		
+>>>>>>> f8629cf46a84b21cc83d8c76da1f354cb0cfa4b5
 	}
 	else {
 		SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); 
@@ -352,9 +356,15 @@ void SnakeGame::render() {
 		SDL_Surface* pointsSurface = TTF_RenderText_Blended(font, pointsText.c_str(), greenColor);
 		SDL_Texture* pointsTexture = SDL_CreateTextureFromSurface(renderer, pointsSurface);
 
+<<<<<<< HEAD
 		SDL_Rect pointsRect = { COLS * TILE_SIZE + 10, 10, pointsSurface->w, pointsSurface->h };
 
 		SDL_RenderCopy(renderer, pointsTexture, NULL, &pointsRect);
+=======
+		SDL_Rect pointsRect = { COLS * TILE_SIZE + 10, 10, pointsSurface->w, pointsSurface->h }; 
+
+		SDL_RenderCopy(renderer, pointsTexture, NULL, &pointsRect);// Render points texture to the renderer
+>>>>>>> f8629cf46a84b21cc83d8c76da1f354cb0cfa4b5
 
 		SDL_FreeSurface(pointsSurface);
 		SDL_DestroyTexture(pointsTexture);
@@ -365,6 +375,12 @@ SnakeGame::~SnakeGame() {
 
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
+<<<<<<< HEAD
 	
 	SDL_Quit();
 }
+=======
+	SDL_DestroyTexture(infoTexture);
+	SDL_Quit();
+}
+>>>>>>> f8629cf46a84b21cc83d8c76da1f354cb0cfa4b5
