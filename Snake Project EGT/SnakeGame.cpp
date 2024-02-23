@@ -291,7 +291,7 @@ void SnakeGame::render() {
 	SDL_RenderClear(renderer);
 
 	if (inInfoMode) {
-		// may be switch case for new enum state (info, 
+		
 	}
 	else {
 		SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // Red color for the border around the snake field
