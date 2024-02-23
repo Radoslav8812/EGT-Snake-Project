@@ -5,7 +5,7 @@ Music::Music() : music(nullptr) {
 
     if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
 
-        cerr << "Mixer Error: " << Mix_GetError() << endl;
+        cerr << "Mixer Error: " << endl;
     }
 
     music = nullptr;
@@ -13,7 +13,6 @@ Music::Music() : music(nullptr) {
     wallCollisionSound = nullptr;
     bodyCollisionSound = nullptr;
 }
-
 
 bool Music::loadMusic(const string& filePath) {
 
@@ -27,7 +26,6 @@ bool Music::loadMusic(const string& filePath) {
 }
 
 bool Music::loadSoundEffects(const string& fruitPath, const string& wallCollisionPath, const string& bodyCollisionPath) {
-    // Load sound effects
     fruitSound = Mix_LoadWAV(fruitPath.c_str());
     wallCollisionSound = Mix_LoadWAV(wallCollisionPath.c_str());
     bodyCollisionSound = Mix_LoadWAV(bodyCollisionPath.c_str());
@@ -61,12 +59,9 @@ void Music::playBodyCollisionSound(const string& filePath) {
 
 
 Music::~Music() {
-    // Free the music and sound effects
     Mix_FreeMusic(music);
     Mix_FreeChunk(fruitSound);
     Mix_FreeChunk(wallCollisionSound);
     Mix_FreeChunk(bodyCollisionSound);
-
-    // Quit SDL Mixer
     Mix_CloseAudio();
 }

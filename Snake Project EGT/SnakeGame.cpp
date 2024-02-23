@@ -8,6 +8,14 @@
 #include <ctime>
 using namespace std;
 
+int startButtonClickTime = 0;
+bool startButtonClicked = false;
+
+int infoButtonClickTime = 0;
+bool infoButtonClicked = false;
+
+int initialSpeed = 100;
+
 SnakeGame::SnakeGame() {
 
 	SDL_Init(SDL_INIT_VIDEO);
@@ -17,10 +25,9 @@ SnakeGame::SnakeGame() {
 	Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048);
 	initBackgroundMusic();
 
-	speed = 1;
 	fruitsEaten = 0;
 	points = 0;
-	initialSpeed = 100;
+	
 	isPause = false;
 	startedMoving = false;
 	isGameRunning = false;
@@ -97,11 +104,11 @@ void SnakeGame::controller() {
 			exit(0);
 		}
 		else if (e.type == SDL_KEYDOWN) {
-			if (!isGameRunning) {
-				/*isGameRunning = true;
-				isPause = false;
-				startedMoving = true;*/
-			}
+			//if (!isGameRunning) {
+			//	/*isGameRunning = true;
+			//	isPause = false;
+			//	startedMoving = true;*/
+			//}
 			Direction newDirection = lastDirection;
 
 			if (e.key.keysym.sym == SDLK_UP && snake.direction != DOWN) {
@@ -130,12 +137,16 @@ void SnakeGame::controller() {
 
 				if (mouseX >= startButtonRect.x && mouseX <= startButtonRect.x + startButtonRect.w && mouseY >= startButtonRect.y && mouseY <= startButtonRect.y + startButtonRect.h) {
 					cout << "Start button clicked!" << endl;
+					startButtonClicked = true;
+					startButtonClickTime = SDL_GetTicks();
 					isGameRunning = true;
 					isPause = false;
 					startedMoving = true;
 				}
 				else if (mouseX >= infoButtonRect.x && mouseX <= infoButtonRect.x + infoButtonRect.w && mouseY >= infoButtonRect.y && mouseY <= infoButtonRect.y + infoButtonRect.h) {
 					cout << "Info button clicked!" << endl;
+					infoButtonClicked = true;
+					infoButtonClickTime = SDL_GetTicks();
 					isPause = true;
 				}
 			}
@@ -164,13 +175,13 @@ void SnakeGame::controller() {
 
 bool SnakeGame::isFruitOnSnakeBody(int row, int col) {
 
-	for (auto& segment : bodyQue) { // is on snake
+	for (auto& segment : bodyQue) {
 		if (segment.first == row && segment.second == col) {
 			return true;
 		}
 
 	}
-	for (auto& food : fruitsVect) {  // is on other food
+	for (auto& food : fruitsVect) {
 		if (food.first == row && food.second == col) {
 			return true;
 		}
@@ -196,16 +207,13 @@ void SnakeGame::update() {
 
 	if (checkCollision()) {
 		cout << "Game Over! You collided with the wall." << std::endl;
-		// must include game over transperancy screen
 		exit(0);
 	}
 	if (bodyQue.size() > 1) {
 		for (auto it = bodyQue.begin() + 1; it != bodyQue.end(); it++) {
 			if (it->first == snake.row && it->second == snake.col) {
 				cout << "Collision in the body." << endl;
-				exit(0);//
-				//enum State gameState;
-				//gameState = GameOver;
+				exit(0);
 			}
 		}
 	}
@@ -224,10 +232,8 @@ void SnakeGame::update() {
 			points++;
 
 			if (fruitsEaten % 3 == 0) {
-				//speed++;
 				initialSpeed -= 3;
 			}
-		
 			break;
 		}
 		else {
@@ -276,80 +282,89 @@ void SnakeGame::renderText(const char* text, int x, int y, SDL_Color textColor) 
 }
 
 void SnakeGame::renderButtons() {
-	SDL_SetRenderDrawColor(renderer, 255, 255, 255, 100); //color to white for buttons
+
+	int currentTime = SDL_GetTicks();
+
+	if (isGameRunning && !isPause) {
+		SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); 
+	}
+	else {
+		SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255);
+	}
 
 	SDL_RenderFillRect(renderer, &startButtonRect);
-	renderText("Start", startButtonRect.x + 10, startButtonRect.y + 10, textColor); // position 
+	renderText("Start", startButtonRect.x + 10, startButtonRect.y + 10, textColor);
+
+	int infoButtonDuration = currentTime - infoButtonClickTime;
+	if (infoButtonClicked && infoButtonDuration < 200) {
+		SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
+	}
+	else {
+		SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255); 
+		infoButtonClicked = false;
+	}
 
 	SDL_RenderFillRect(renderer, &infoButtonRect);
-	renderText("Game Info", infoButtonRect.x + 10, infoButtonRect.y + 10, textColor); // position
+	renderText("Game Info", infoButtonRect.x + 10, infoButtonRect.y + 10, textColor);
 }
 
 void SnakeGame::render() {
-	// Clear the renderer
+
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 	SDL_RenderClear(renderer);
 
 	if (inInfoMode) {
-		// may be switch case for new enum state (info, 
 	}
 	else {
-		SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // Red color for the border around the snake field
+		SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); 
 		SDL_Rect borderRect = { 0, 0, COLS * TILE_SIZE, ROWS * TILE_SIZE };
 		SDL_RenderDrawRect(renderer, &borderRect);
 
-		SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255); // Draw snake
+		SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
 		SDL_Rect headRect = { snake.col * TILE_SIZE, snake.row * TILE_SIZE, TILE_SIZE, TILE_SIZE };
 		SDL_RenderFillRect(renderer, &headRect);
 
-		SDL_SetRenderDrawColor(renderer, 0, 200, 0, 255); // Darker green for the body // Draw snake body
+		SDL_SetRenderDrawColor(renderer, 0, 200, 0, 255);
 		for (const auto& segment : bodyQue) {
 			SDL_Rect bodyRect = { segment.second * TILE_SIZE, segment.first * TILE_SIZE, TILE_SIZE, TILE_SIZE };
 			SDL_RenderFillRect(renderer, &bodyRect);
 		}
 		
-		SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); // Set fruit color to red // Draw fruit
+		SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); 
 		for (int i = 0; i < fruitsVect.size(); i++) {
 			SDL_Rect fruitRect = { fruitsVect.at(i).second * TILE_SIZE, fruitsVect.at(i).first * TILE_SIZE, TILE_SIZE, TILE_SIZE };
 			SDL_RenderFillRect(renderer, &fruitRect);
 		}
 		
-		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);  // Black color for the background button area
+		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 		SDL_Rect buttonAreaRect = { COLS * TILE_SIZE, 0, 400, ROWS * TILE_SIZE };
 		SDL_RenderFillRect(renderer, &buttonAreaRect);
 
-		SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255); // Green color for the border of button area
+		SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
 		SDL_Rect buttonAreaBorderRect = { COLS * TILE_SIZE, 0, 400, ROWS * TILE_SIZE };
 		SDL_RenderDrawRect(renderer, &buttonAreaBorderRect);
    
-		renderButtons();  // Render buttons on the button area
+		renderButtons();
 		
-		SDL_Color greenColor = { 0, 255, 0, 255 }; // Render the points text in the button area using SDL_RenderCopy
+		SDL_Color greenColor = { 0, 255, 0, 255 };
 		string pointsText = "Points: " + to_string(fruitsEaten);
 
-		SDL_Surface* pointsSurface = TTF_RenderText_Blended(font, pointsText.c_str(), greenColor);// Render points texture
+		SDL_Surface* pointsSurface = TTF_RenderText_Blended(font, pointsText.c_str(), greenColor);
 		SDL_Texture* pointsTexture = SDL_CreateTextureFromSurface(renderer, pointsSurface);
 
-		SDL_Rect pointsRect = { COLS * TILE_SIZE + 10, 10, pointsSurface->w, pointsSurface->h }; // Set the destination rectangle in the button area
+		SDL_Rect pointsRect = { COLS * TILE_SIZE + 10, 10, pointsSurface->w, pointsSurface->h };
 
-		//if(state == gameOver) {
-		// gameOVertLogic()
-		//}
-
-		SDL_RenderCopy(renderer, pointsTexture, NULL, &pointsRect);// Render points texture to the renderer
+		SDL_RenderCopy(renderer, pointsTexture, NULL, &pointsRect);
 
 		SDL_FreeSurface(pointsSurface);
 		SDL_DestroyTexture(pointsTexture);
 	}
-	SDL_RenderPresent(renderer);// Render changes
+	SDL_RenderPresent(renderer);
 }
 SnakeGame::~SnakeGame() {
 
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
-	SDL_DestroyTexture(infoTexture); // Add this line
+	
 	SDL_Quit();
 }
-// 1) zvuk - po-tiho background, po-silni efekti
-// 2) butonite za start i info , ako moje v drug class
- //3)

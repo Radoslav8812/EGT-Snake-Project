@@ -38,18 +38,15 @@ private:
 
     Direction lastDirection;
     Snake snake; 
-    deque <pair<int, int>> bodyQue; // body
-    vector <pair<int, int>> fruitsVect; // fruits
-    vector<pair<int, int>> fruitsPositions;
-    
+    deque <pair<int, int>> bodyQue;
+    vector <pair<int, int>> fruitsVect; 
+    vector<pair<int, int>> fruitsPositions;  
 
     int fruitRow;
     int fruitCol;
     int fruitsEaten;
     int points;
     int initialDelay;
-    int speed;
-    float initialSpeed;
 
     bool startedMoving;
     bool isPause;
@@ -77,7 +74,7 @@ private:
     SDL_Texture* infoTextTexture;
     SDL_Texture* infoTexture;
   
-    void renderText(const char* text, int x, int y, SDL_Color textColor); // Function to render text on the screen
+    void renderText(const char* text, int x, int y, SDL_Color textColor);
 
 public:
     SnakeGame();
@@ -90,7 +87,6 @@ public:
     void initBackgroundMusic();
 
     void renderButtons();
-    //void initCoverInfo();
 
     void run();
 };
