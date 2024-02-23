@@ -1,6 +1,0 @@
-name:surname:grades:
-________________
-iliq iliev 6
-radi bogdanov 5
-dimi vulkova 6
-Avarage sum from these grades is: 5.66667
