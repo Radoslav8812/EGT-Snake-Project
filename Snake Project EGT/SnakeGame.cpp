@@ -320,13 +320,6 @@ void SnakeGame::initBackgroundMusic() {
 		soundManager.play();
 	}
 }
-void initializeRect(SDL_Rect& rect, int height, int width, int x, int y) {
-
-	rect.h = height;
-	rect.w = width;
-	rect.x = x;
-	rect.y = y;
-}
 
 SDL_Texture* SnakeGame::renderBackground(const char* path) {
 
