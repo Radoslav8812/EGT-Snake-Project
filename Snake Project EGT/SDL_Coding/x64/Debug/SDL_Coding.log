@@ -1,5 +1,4 @@
-﻿  Music.cpp
-  SnakeGame.cpp
+﻿  SnakeGame.cpp
 C:\Users\User\Desktop\SDL_Coding\SnakeGame.cpp(43,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   main.cpp
   Generating Code...

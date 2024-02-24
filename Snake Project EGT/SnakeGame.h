@@ -1,10 +1,11 @@
 #pragma once
 
-#include <deque>
+
 #include <SDL.h>
 #include <SDL_mixer.h>
 #include <SDL_ttf.h>
 
+#include <deque>
 #include <string>
 #include <iostream>
 #include <vector>
@@ -61,7 +62,7 @@ private:
     bool isOppositeDirection(Direction d1, Direction d2);
     bool isFruitOnSnakeBody(int row, int col);
     
-    Music music;
+    Music soundManager;
     SDL_Window* window;
     SDL_Renderer* renderer;
     SDL_Rect startButtonRect;
