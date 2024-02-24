@@ -100,7 +100,6 @@ private:
     SDL_Rect dRectRules;
   
     void renderText(const char* text, int x, int y, SDL_Color textColor);
-    void initializeRect(SDL_Rect& rect, int height, int width, int x, int y);
 public:
     SnakeGame();
     ~SnakeGame();
