@@ -49,11 +49,11 @@ void Music::playFruitSound(const string& filePath) {
     Mix_PlayChannel(-1, fruitSound, 0);
 }
 
-void Music::playWallCollisionSound(const string& filePath) {
+void Music::playCollisionSound(const string& filePath) {
     Mix_PlayChannel(-1, wallCollisionSound, 0);
 }
 
-void Music::playBodyCollisionSound(const string& filePath) {
+void Music::playClickSound(const string& filePath) {
     Mix_PlayChannel(-1, bodyCollisionSound, 0);
 }
 

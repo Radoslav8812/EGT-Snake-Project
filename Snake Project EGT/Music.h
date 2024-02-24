@@ -27,8 +27,8 @@ public:
    
     void play();
     void playFruitSound(const string& filePath);
-    void playWallCollisionSound(const string& filePath);
-    void playBodyCollisionSound(const string& filePath);
+    void playCollisionSound(const string& filePath);
+    void playClickSound(const string& filePath);
 };
 
 #endif 
