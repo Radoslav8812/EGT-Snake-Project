@@ -32,7 +32,7 @@ SnakeGame::SnakeGame() {
 	startedMoving = false;
 	isGameRunning = false;
 	inInfoMode = false;
-																											 // +400 space for buttons
+													 // +400 space for buttons
 	window = SDL_CreateWindow("Snake Game", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, COLS * TILE_SIZE + 400, ROWS * TILE_SIZE, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
@@ -314,6 +314,10 @@ void SnakeGame::render() {
 	SDL_RenderClear(renderer);
 
 	if (inInfoMode) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 14cb627732ea3a8fdec00acb35344c4ff74b9955
 	}
 	else {
 		SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); 
@@ -355,6 +359,14 @@ void SnakeGame::render() {
 		SDL_Rect pointsRect = { COLS * TILE_SIZE + 10, 10, pointsSurface->w, pointsSurface->h };
 
 		SDL_RenderCopy(renderer, pointsTexture, NULL, &pointsRect);
+<<<<<<< HEAD
+=======
+
+		SDL_Rect pointsRect = { COLS * TILE_SIZE + 10, 10, pointsSurface->w, pointsSurface->h }; 
+
+		SDL_RenderCopy(renderer, pointsTexture, NULL, &pointsRect);
+
+>>>>>>> 14cb627732ea3a8fdec00acb35344c4ff74b9955
 
 		SDL_FreeSurface(pointsSurface);
 		SDL_DestroyTexture(pointsTexture);
@@ -362,9 +374,17 @@ void SnakeGame::render() {
 	SDL_RenderPresent(renderer);
 }
 SnakeGame::~SnakeGame() {
-
 	SDL_DestroyRenderer(renderer);
+<<<<<<< HEAD
 	SDL_DestroyWindow(window);
 	
 	SDL_Quit();
 }
+=======
+	SDL_DestroyWindow(window);	
+	SDL_Quit();
+	SDL_DestroyTexture(infoTexture);
+	SDL_Quit();
+}
+
+>>>>>>> 14cb627732ea3a8fdec00acb35344c4ff74b9955
