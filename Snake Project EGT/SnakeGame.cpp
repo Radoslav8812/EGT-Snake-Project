@@ -32,7 +32,7 @@ SnakeGame::SnakeGame() {
 	startedMoving = false;
 	isGameRunning = false;
 	inInfoMode = false;
-													 // +400 space for buttons
+																											 // +400 space for buttons
 	window = SDL_CreateWindow("Snake Game", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, COLS * TILE_SIZE + 400, ROWS * TILE_SIZE, SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
@@ -72,6 +72,8 @@ SnakeGame::SnakeGame() {
 
 	SDL_FreeSurface(startTextSurface);
 	SDL_FreeSurface(infoTextSurface);
+
+	soundManager.loadSoundEffects("C:/Users/User/Desktop/Mp3's/eatSound.wav", "C:/Users/User/Desktop/Mp3's/wallSound.mp3", "C:/Users/User/Desktop/Mp3's/wallSound.mp3");
 }
 
 bool SnakeGame::isPaused() const {
@@ -207,12 +209,16 @@ void SnakeGame::update() {
 
 	if (checkCollision()) {
 		cout << "Game Over! You collided with the wall." << endl;
+		soundManager.playWallCollisionSound("C:/Users/User/Desktop/Mp3's/wallSound.mp3");
+		SDL_Delay(1000);
 		exit(0);
 	}
 	if (bodyQue.size() > 1) {
 		for (auto it = bodyQue.begin() + 1; it != bodyQue.end(); it++) {
 			if (it->first == snake.row && it->second == snake.col) {
 				cout << "Collision in the body." << endl;
+				soundManager.playBodyCollisionSound("C:/Users/User/Desktop/Mp3's/wallSound.mp3");
+				SDL_Delay(1000);
 				exit(0);
 			}
 		}
@@ -227,7 +233,7 @@ void SnakeGame::update() {
 			it = fruitsVect.erase(it);
 			isEaten = true;
 			bodyQue.push_front(make_pair(snake.row, snake.col));
-
+			soundManager.playFruitSound("C:/Users/User/Desktop/Mp3's/eatSound.wav");
 			fruitsEaten++;
 			points++;
 
@@ -243,16 +249,13 @@ void SnakeGame::update() {
 	}
 
 	if (isEaten && fruitsVect.size() < 1) {
-
 		int numOfFruits = rand() % 2 + 1;
 
 		for (int i = 0; i < numOfFruits; i++) {
-
 			int fruitRowNew = rand() % ROWS;
 			int fruitColNew = rand() % COLS;
 
 			while (isFruitOnSnakeBody(fruitRowNew, fruitColNew)) {
-
 				fruitRowNew = rand() % ROWS;
 				fruitColNew = rand() % COLS;
 			}
@@ -314,10 +317,6 @@ void SnakeGame::render() {
 	SDL_RenderClear(renderer);
 
 	if (inInfoMode) {
-<<<<<<< HEAD
-=======
-
->>>>>>> 14cb627732ea3a8fdec00acb35344c4ff74b9955
 	}
 	else {
 		SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255); 
@@ -359,14 +358,6 @@ void SnakeGame::render() {
 		SDL_Rect pointsRect = { COLS * TILE_SIZE + 10, 10, pointsSurface->w, pointsSurface->h };
 
 		SDL_RenderCopy(renderer, pointsTexture, NULL, &pointsRect);
-<<<<<<< HEAD
-=======
-
-		SDL_Rect pointsRect = { COLS * TILE_SIZE + 10, 10, pointsSurface->w, pointsSurface->h }; 
-
-		SDL_RenderCopy(renderer, pointsTexture, NULL, &pointsRect);
-
->>>>>>> 14cb627732ea3a8fdec00acb35344c4ff74b9955
 
 		SDL_FreeSurface(pointsSurface);
 		SDL_DestroyTexture(pointsTexture);
@@ -374,17 +365,9 @@ void SnakeGame::render() {
 	SDL_RenderPresent(renderer);
 }
 SnakeGame::~SnakeGame() {
+
 	SDL_DestroyRenderer(renderer);
-<<<<<<< HEAD
 	SDL_DestroyWindow(window);
 	
 	SDL_Quit();
 }
-=======
-	SDL_DestroyWindow(window);	
-	SDL_Quit();
-	SDL_DestroyTexture(infoTexture);
-	SDL_Quit();
-}
-
->>>>>>> 14cb627732ea3a8fdec00acb35344c4ff74b9955

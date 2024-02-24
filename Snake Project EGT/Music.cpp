@@ -26,6 +26,7 @@ bool Music::loadMusic(const string& filePath) {
 }
 
 bool Music::loadSoundEffects(const string& fruitPath, const string& wallCollisionPath, const string& bodyCollisionPath) {
+
     fruitSound = Mix_LoadWAV(fruitPath.c_str());
     wallCollisionSound = Mix_LoadWAV(wallCollisionPath.c_str());
     bodyCollisionSound = Mix_LoadWAV(bodyCollisionPath.c_str());
@@ -34,7 +35,6 @@ bool Music::loadSoundEffects(const string& fruitPath, const string& wallCollisio
         cout << "Error on sound" << endl;
         return false;
     }
-
     return true;
 }
 
