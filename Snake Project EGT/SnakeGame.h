@@ -4,6 +4,7 @@
 #include <SDL.h>
 #include <SDL_mixer.h>
 #include <SDL_ttf.h>
+#include <SDL_image.h>
 
 #include <deque>
 #include <string>
@@ -35,7 +36,6 @@ enum ButtonState {
     BTN_INACTIVE,
     BTN_PRESSED
 };
-
 struct Snake {
     int row;
     int col;
@@ -52,16 +52,13 @@ private:
     Direction lastDirection;
     Snake snake; 
     deque <pair<int, int>> bodyQue;
-
     vector <pair<int, int>> fruitsVect; 
-    vector<pair<int, int>> fruitsPositions;  
     
     int fruitRow;
     int fruitCol;
     int fruitsEaten;
     int points;
     int initialDelay;
-
     int pointFieldX;
     int pointFieldY;
 
@@ -70,13 +67,7 @@ private:
     bool isGameRunning;
     bool inInfoMode;
 
-    void controller();
-    void update();
-    void render();
-    bool checkCollision();
-    void displayGameOver();
-    bool isOppositeDirection(Direction d1, Direction d2);
-    bool isFruitOnSnakeBody(int row, int col);
+    
     
     Music soundManager;
     SDL_Window* window;
@@ -91,24 +82,35 @@ private:
     SDL_Texture* infoTextTexture;
     SDL_Texture* infoRulesTexture;
     SDL_Texture* backgroundTexture;
+    SDL_Texture* snakeFruitTexture;
     
-   // SDL_Texture* backgroundTexture = snakeGame.renderBackground("path/to/your/background/image.png");
     SDL_Rect rectBGR;
     SDL_Rect drectBGR;
-
     SDL_Rect rectRules;
     SDL_Rect dRectRules;
+
+    void controller();
+    void update();
+    void render();
+    bool checkCollision();
+    //void displayGameOver();
+    bool isOppositeDirection(Direction d1, Direction d2);
+    bool isFruitOnSnakeBodyOrAnotherFruit(int row, int col);
   
+<<<<<<< Updated upstream
     void renderText(const char* text, int x, int y, SDL_Color textColor);
+=======
+>>>>>>> Stashed changes
 public:
     SnakeGame();
     ~SnakeGame();
 
-    bool isPaused() const;
+    bool isPaused();
     void togglePause();
     void initBackgroundMusic();
     void renderButtons();
-     void InitStartingParameters();
+    void InitStartingParameters();
+    void renderText(const char* text, int x, int y, SDL_Color textColor);
     SDL_Texture* renderBackground(const char* path);
 
     void run();

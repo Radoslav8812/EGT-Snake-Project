@@ -1,5 +1,6 @@
 #include "SnakeGame.h"
 #include "Music.h"
+
 #include <SDL_ttf.h>
 #include <SDL_image.h>
 
@@ -10,10 +11,8 @@ using namespace std;
 
 int startButtonClickTime = 0;
 bool startButtonClicked = false;
-
 int infoButtonClickTime = 0;
 bool infoButtonClicked = false;
-
 int initialSpeed = 100;
 
 SnakeGame::SnakeGame() {
@@ -74,12 +73,13 @@ SnakeGame::SnakeGame() {
 	dRectRules.x = 0;
 	dRectRules.y = 0;
 
-	infoRulesTexture = renderBackground("C:/Users/User/Desktop/sn1.png");
-	backgroundTexture = renderBackground("C:/Users/User/Desktop/forest.webp");
+	snakeFruitTexture = renderBackground("C:/Users/User/Desktop/redApple1.png");
+	infoRulesTexture = renderBackground("C:/Users/User/Desktop/nnRules1.jpg");
+	backgroundTexture = renderBackground("C:/Users/User/Desktop/nn.jpg");
 	soundManager.loadSoundEffects("C:/Users/User/Desktop/Mp3's/eatSound.wav", "C:/Users/User/Desktop/Mp3's/wallSound.mp3", "C:/Users/User/Desktop/Mp3's/click.wav");
 }
 
-bool SnakeGame::isPaused() const {
+bool SnakeGame::isPaused() {
 	return isPause;
 }
 void SnakeGame::togglePause() {
@@ -87,6 +87,11 @@ void SnakeGame::togglePause() {
 	if (startedMoving) {
 		isPause = !isPause;
 	}
+}
+
+bool SnakeGame::isOppositeDirection(Direction d1, Direction d2) {
+
+	return (d1 == UP && d2 == DOWN) || (d1 == DOWN && d2 == UP) || (d1 == LEFT && d2 == RIGHT) || (d1 == RIGHT && d2 == LEFT);
 }
 
 void SnakeGame::run() {
@@ -109,11 +114,7 @@ void SnakeGame::controller() {
 			exit(0);
 		}
 		else if (e.type == SDL_KEYDOWN) {
-			//if (!isGameRunning) {
-			//	/*isGameRunning = true;
-			//	isPause = false;
-			//	startedMoving = true;*/
-			//}
+
 			Direction newDirection = lastDirection;
 
 			if (e.key.keysym.sym == SDLK_UP && snake.direction != DOWN) {
@@ -128,7 +129,6 @@ void SnakeGame::controller() {
 			else if (e.key.keysym.sym == SDLK_RIGHT && snake.direction != LEFT) {
 				newDirection = RIGHT;
 			}
-
 			if (!isOppositeDirection(snake.direction, newDirection)) {
 				snake.direction = newDirection;
 				lastDirection = newDirection;
@@ -139,12 +139,11 @@ void SnakeGame::controller() {
 			if (e.button.button == SDL_BUTTON_LEFT) {
 				int mouseX = e.button.x;
 				int mouseY = e.button.y;
-				//start
+
 				if (mouseX >= startButtonRect.x && mouseX <= startButtonRect.x + startButtonRect.w && mouseY >= startButtonRect.y && mouseY <= startButtonRect.y + startButtonRect.h) {
 					if (btnsState == BTN_INACTIVE) {
 						return;
 					}
-
 					if (gameState == GAME_INACTIVE || prevGameState != gameState && prevGameState == GAME_INACTIVE) {
 						InitStartingParameters();
 					}
@@ -158,13 +157,12 @@ void SnakeGame::controller() {
 					soundManager.playClickSound("C:/Users/User/Desktop/Mp3's/click.wav");
 					prevGameState = gameState;
 					gameState = GAME_RUNNING;
-				} // pause or info
+				}
 				else if (mouseX >= infoButtonRect.x && mouseX <= infoButtonRect.x + infoButtonRect.w && mouseY >= infoButtonRect.y && mouseY <= infoButtonRect.y + infoButtonRect.h) {
 
 					if (gameState != GAME_PAUSED) {
 						cout << "Info button clicked!" << endl;
 						infoButtonClicked = true;
-						
 						isPause = true;
 						soundManager.playClickSound("C:/Users/User/Desktop/Mp3's/click.wav");
 						prevGameState = gameState;
@@ -184,13 +182,11 @@ void SnakeGame::controller() {
 			int mouseY = e.button.y;
 			if (mouseX >= startButtonRect.x && mouseX <= startButtonRect.x + startButtonRect.w && mouseY >= startButtonRect.y && mouseY <= startButtonRect.y + startButtonRect.h) {
 				if (gameState == GAME_RUNNING) {
-					btnsState = BTN_INACTIVE; btnsState;
-				}
-				
+					btnsState = BTN_INACTIVE;
+				}	
 			}
 		}
 	}
-
 	if (isGameRunning && startedMoving && !isPause) {
 
 		bodyQue.push_front(make_pair(snake.row, snake.col));
@@ -211,34 +207,27 @@ void SnakeGame::controller() {
 	}
 }
 
-bool SnakeGame::isFruitOnSnakeBody(int row, int col) {
+bool SnakeGame::isFruitOnSnakeBodyOrAnotherFruit(int row, int col) {
 
 	for (auto& segment : bodyQue) {
 		if (segment.first == row && segment.second == col) {
 			return true;
 		}
-
 	}
 	for (auto& food : fruitsVect) {
 		if (food.first == row && food.second == col) {
 			return true;
 		}
 	}
-
 	fruitsVect.push_back(make_pair(row, col));
 	return false;
 }
 
-bool SnakeGame::isOppositeDirection(Direction d1, Direction d2) {
 
-	return (d1 == UP && d2 == DOWN) || (d1 == DOWN && d2 == UP) || (d1 == LEFT && d2 == RIGHT) || (d1 == RIGHT && d2 == LEFT);
-}
 
 bool SnakeGame::checkCollision() {
 
-
 	if (snake.row <= 0 || snake.row >= ROWS - 1 || snake.col <= 0 || snake.col >= COLS - 1) {
-
 		return true;
 	}
 	return false;
@@ -263,12 +252,11 @@ void SnakeGame::update() {
 		}
 	}
 	if (gameState == GAME_OVER) {
+
 		isGameRunning = false;
-		//renderText("Game Over!", COLS * TILE_SIZE / 2 - 100, ROWS * TILE_SIZE / 2 - 25, redColor);
 		btnsState = BTN_ACTIVE;
 		pointFieldX = COLS * TILE_SIZE / 2 - 100;
 		pointFieldY = ROWS * TILE_SIZE / 2 + 25;
-		//cout << "Game Over! You collided with the wall or yourself." << endl;
 		soundManager.playCollisionSound("C:/Users/User/Desktop/Mp3's/wallSound.mp3");
 		prevGameState = gameState;
 		gameState = GAME_INACTIVE;
@@ -293,11 +281,9 @@ void SnakeGame::update() {
 			break;
 		}
 		else {
-
 			++it;
 		}
 	}
-
 	if (isEaten && fruitsVect.size() < 1) {
 		int numOfFruits = rand() % 2 + 1;
 
@@ -305,7 +291,7 @@ void SnakeGame::update() {
 			int fruitRowNew = rand() % ROWS;
 			int fruitColNew = rand() % COLS;
 
-			while (isFruitOnSnakeBody(fruitRowNew, fruitColNew)) {
+			while (isFruitOnSnakeBodyOrAnotherFruit(fruitRowNew, fruitColNew)) {
 				fruitRowNew = rand() % ROWS;
 				fruitColNew = rand() % COLS;
 			}
@@ -316,18 +302,14 @@ void SnakeGame::update() {
 void SnakeGame::initBackgroundMusic() {
 
 	if (soundManager.loadMusic("C:/Users/User/Desktop/Mp3's/BackGroundSound.mp3")) {
-
 		soundManager.play();
+		Mix_VolumeMusic(64);
 	}
 }
 
 SDL_Texture* SnakeGame::renderBackground(const char* path) {
 
 	SDL_Surface* surface = IMG_Load(path);
-	if (!surface) {
-		cout << "Failed to load background image: " << endl;
-		exit(1);
-	}
 	SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
 	SDL_FreeSurface(surface);
 
@@ -341,7 +323,6 @@ void SnakeGame::renderText(const char* text, int x, int y, SDL_Color textColor) 
 	SDL_Rect textRect = { x, y, textSurface->w, textSurface->h };
 
 	SDL_RenderCopy(renderer, textTexture, NULL, &textRect);
-
 	SDL_FreeSurface(textSurface);
 	SDL_DestroyTexture(textTexture);
 }
@@ -357,10 +338,10 @@ void SnakeGame::renderButtons() {
 		SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255);
 	}
 	else {
-		SDL_SetRenderDrawColor(renderer, 147, 22, 177, 255);
+		SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
 	}
 	SDL_RenderFillRect(renderer, &startButtonRect);
-	renderText("Start", startButtonRect.x + 10, startButtonRect.y + 10, textColor);
+	renderText("Start", startButtonRect.x + 75, startButtonRect.y + 33, textColor);
 	//----------------------------
 	int infoButtonDuration = currentTime - infoButtonClickTime;
 	if (infoButtonClicked && infoButtonDuration < 200) {
@@ -372,13 +353,12 @@ void SnakeGame::renderButtons() {
 	}
 
 	SDL_RenderFillRect(renderer, &infoButtonRect);
-	renderText("Game Info", infoButtonRect.x + 10, infoButtonRect.y + 10, textColor);
+	renderText("Game Info", infoButtonRect.x + 10, infoButtonRect.y + 33, textColor);	
 }
 
 void SnakeGame::render() {
 
 	SDL_RenderClear(renderer);
-	//SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 	SDL_RenderCopy(renderer, backgroundTexture, &rectBGR, &drectBGR);
 
 	SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
@@ -395,10 +375,15 @@ void SnakeGame::render() {
 		SDL_RenderFillRect(renderer, &bodyRect);
 	}
 
-	SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+	/*SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
 	for (int i = 0; i < fruitsVect.size(); i++) {
 		SDL_Rect fruitRect = { fruitsVect.at(i).second * TILE_SIZE, fruitsVect.at(i).first * TILE_SIZE, TILE_SIZE, TILE_SIZE };
 		SDL_RenderFillRect(renderer, &fruitRect);
+	}*/
+	// Render snake fruit image texture instead of filled rectangles
+	for (int i = 0; i < fruitsVect.size(); i++) {
+		SDL_Rect fruitRect = { fruitsVect.at(i).second * TILE_SIZE, fruitsVect.at(i).first * TILE_SIZE, TILE_SIZE, TILE_SIZE };
+		SDL_RenderCopy(renderer, snakeFruitTexture, NULL, &fruitRect);
 	}
 
 	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
@@ -420,10 +405,8 @@ void SnakeGame::render() {
 	SDL_Rect pointsRect = { pointFieldX, pointFieldY, pointsSurface->w, pointsSurface->h };
 
 	SDL_RenderCopy(renderer, pointsTexture, NULL, &pointsRect);
-
 	SDL_FreeSurface(pointsSurface);
 	SDL_DestroyTexture(pointsTexture);
-
 
 	if (gameState == GAME_OVER || gameState == GAME_INACTIVE) {
 		SDL_Color redColor = { 255, 0, 0, 255 };
@@ -433,21 +416,18 @@ void SnakeGame::render() {
 	if (gameState == GAME_PAUSED) {
 		SDL_RenderCopy(renderer, infoRulesTexture, &rectRules, &dRectRules);
 	}
-	
-
 	SDL_RenderPresent(renderer);
 }
 SnakeGame::~SnakeGame() {
 
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
-
 	SDL_Quit();
 }
 
 void SnakeGame::InitStartingParameters() {
 
-	cout << "any print ?" << endl;
+	cout << "Init ?" << endl;
 	fruitsEaten = 0; 
 	points = 0;
 
