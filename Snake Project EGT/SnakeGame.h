@@ -15,7 +15,7 @@
 using namespace std;
 const int ROWS = 40;
 const int COLS = 60;
-const int TILE_SIZE = 20;
+const int TILE_SIZE = 24;
 
 enum Direction {
     UP,
@@ -48,8 +48,8 @@ private:
     GameState gameState;
     GameState prevGameState;
     ButtonState btnsState;
-
     Direction lastDirection;
+
     Snake snake; 
     deque <pair<int, int>> bodyQue;
     vector <pair<int, int>> fruitsVect; 
@@ -66,7 +66,7 @@ private:
     bool isPause;
     bool isGameRunning;
     bool inInfoMode;
-  
+    
     Music soundManager;
     SDL_Window* window;
     SDL_Renderer* renderer;
@@ -92,19 +92,8 @@ private:
     void update();
     void render();
     bool checkCollision();
-    //void displayGameOver();
     bool isOppositeDirection(Direction d1, Direction d2);
     bool isFruitOnSnakeBodyOrAnotherFruit(int row, int col);
-  
-<<<<<<< HEAD
-=======
-    void renderText(const char* text, int x, int y, SDL_Color textColor);
-
->>>>>>> 6636dfcbb89ff7a029e7e11c9856f07d7533d92b
-public:
-    SnakeGame();
-    ~SnakeGame();
-
     bool isPaused();
     void togglePause();
     void initBackgroundMusic();
@@ -112,6 +101,10 @@ public:
     void InitStartingParameters();
     void renderText(const char* text, int x, int y, SDL_Color textColor);
     SDL_Texture* renderBackground(const char* path);
+  
+public:
+    SnakeGame();
+    ~SnakeGame();
 
     void run();
 };

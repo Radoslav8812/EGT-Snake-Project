@@ -13,7 +13,7 @@ int startButtonClickTime = 0;
 bool startButtonClicked = false;
 int infoButtonClickTime = 0;
 bool infoButtonClicked = false;
-int initialSpeed = 100;
+int initialSpeed = 150;
 
 SnakeGame::SnakeGame() {
 
@@ -224,8 +224,6 @@ bool SnakeGame::isFruitOnSnakeBodyOrAnotherFruit(int row, int col) {
 	return false;
 }
 
-
-
 bool SnakeGame::checkCollision() {
 
 	if (snake.row <= 0 || snake.row >= ROWS - 1 || snake.col <= 0 || snake.col >= COLS - 1) {
@@ -387,7 +385,6 @@ void SnakeGame::render() {
 		SDL_RenderCopy(renderer, snakeFruitTexture, NULL, &fruitRect);
 	}
 
-	//SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 	SDL_Rect buttonAreaRect = { COLS * TILE_SIZE, 0, 400, ROWS * TILE_SIZE };
 	SDL_RenderFillRect(renderer, &buttonAreaRect);
 	SDL_RenderCopy(renderer, buttonsBackgroundTexture, nullptr, &buttonAreaRect);
@@ -425,7 +422,6 @@ SnakeGame::~SnakeGame() {
 
 void SnakeGame::InitStartingParameters() {
 
-	cout << "Init ?" << endl;
 	fruitsEaten = 0; 
 	points = 0;
 

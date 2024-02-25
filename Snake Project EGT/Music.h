@@ -23,7 +23,7 @@ public:
     ~Music();
 
     bool loadMusic(const string& filePath);
-    bool loadSoundEffects(const string& fruitPath, const string& wallCollisionPath, const string& bodyCollisionPath);
+    bool loadSoundEffects(const string& fruitPath, const string& wallCollisionPath, const string& clickPath);
    
     void play();
     void playFruitSound(const string& filePath);

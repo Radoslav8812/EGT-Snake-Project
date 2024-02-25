@@ -1,12 +1,7 @@
 
 #include "Music.h"
 
-Music::Music() : music(nullptr) {
-
-    if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0) {
-
-        cerr << "Mixer Error: " << endl;
-    }
+Music::Music() {
 
     music = nullptr;
     fruitSound = nullptr;
@@ -25,11 +20,11 @@ bool Music::loadMusic(const string& filePath) {
     return true;
 }
 
-bool Music::loadSoundEffects(const string& fruitPath, const string& wallCollisionPath, const string& bodyCollisionPath) {
+bool Music::loadSoundEffects(const string& fruitPath, const string& wallCollisionPath, const string& clickPath) {
 
     fruitSound = Mix_LoadWAV(fruitPath.c_str());
     wallCollisionSound = Mix_LoadWAV(wallCollisionPath.c_str());
-    bodyCollisionSound = Mix_LoadWAV(bodyCollisionPath.c_str());
+    bodyCollisionSound = Mix_LoadWAV(clickPath.c_str());
 
     if (fruitSound == nullptr || wallCollisionSound == nullptr || bodyCollisionSound == nullptr) {
         cout << "Error on sound" << endl;
