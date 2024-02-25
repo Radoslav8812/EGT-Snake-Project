@@ -66,9 +66,7 @@ private:
     bool isPause;
     bool isGameRunning;
     bool inInfoMode;
-
-    
-    
+  
     Music soundManager;
     SDL_Window* window;
     SDL_Renderer* renderer;
@@ -97,10 +95,8 @@ private:
     bool isOppositeDirection(Direction d1, Direction d2);
     bool isFruitOnSnakeBodyOrAnotherFruit(int row, int col);
   
-<<<<<<< Updated upstream
     void renderText(const char* text, int x, int y, SDL_Color textColor);
-=======
->>>>>>> Stashed changes
+
 public:
     SnakeGame();
     ~SnakeGame();
