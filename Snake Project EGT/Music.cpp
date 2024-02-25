@@ -30,14 +30,11 @@ bool Music::loadSoundEffects(const string& fruitPath, const string& wallCollisio
         cout << "Error on sound" << endl;
         return false;
     }
-    return true;
+    return true; 
 }
 
 void Music::play() {
-
-    if (Mix_PlayMusic(music, -1) == -1) {
-        cerr << "Failed to play music!" << endl;
-    }
+    Mix_PlayMusic(music, -1) == -1; 
 }
 
 void Music::playFruitSound(const string& filePath) {
@@ -51,7 +48,6 @@ void Music::playCollisionSound(const string& filePath) {
 void Music::playClickSound(const string& filePath) {
     Mix_PlayChannel(-1, bodyCollisionSound, 0);
 }
-
 
 Music::~Music() {
     Mix_FreeMusic(music);

@@ -1,12 +1,11 @@
 #include "SnakeGame.h"
 #include "Music.h"
-
 #include <SDL_ttf.h>
 #include <SDL_image.h>
-
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+
 using namespace std;
 
 int startButtonClickTime = 0;
@@ -341,7 +340,7 @@ void SnakeGame::renderButtons() {
 	}
 	SDL_RenderFillRect(renderer, &startButtonRect);
 	renderText("Start", startButtonRect.x + 75, startButtonRect.y + 33, textColor);
-
+	//----------------------------
 	int infoButtonDuration = currentTime - infoButtonClickTime;
 	if (infoButtonClicked && infoButtonDuration < 200) {
 		SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
@@ -350,7 +349,6 @@ void SnakeGame::renderButtons() {
 		SDL_SetRenderDrawColor(renderer, 255, 255, 0, 255);
 		infoButtonClicked = false;
 	}
-
 	SDL_RenderFillRect(renderer, &infoButtonRect);
 	renderText("Game Info", infoButtonRect.x + 10, infoButtonRect.y + 33, textColor);	
 }
@@ -385,10 +383,6 @@ void SnakeGame::render() {
 		SDL_RenderCopy(renderer, snakeFruitTexture, NULL, &fruitRect);
 	}
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 46bc80f6fac089dc29c2f0cfd054ea82f78ba425
 	SDL_Rect buttonAreaRect = { COLS * TILE_SIZE, 0, 400, ROWS * TILE_SIZE };
 	SDL_RenderFillRect(renderer, &buttonAreaRect);
 	SDL_RenderCopy(renderer, buttonsBackgroundTexture, nullptr, &buttonAreaRect);
@@ -417,12 +411,6 @@ void SnakeGame::render() {
 	}
 	SDL_RenderPresent(renderer);
 }
-SnakeGame::~SnakeGame() {
-
-	SDL_DestroyRenderer(renderer);
-	SDL_DestroyWindow(window);
-	SDL_Quit();
-}
 
 void SnakeGame::InitStartingParameters() {
 
@@ -450,9 +438,23 @@ void SnakeGame::InitStartingParameters() {
 
 	bodyQue.clear();
 	bodyQue.push_front(make_pair(snake.row, snake.col));
+
 	lastDirection = RIGHT;
 	
 	gameState = GAME_INITIAL;
 	prevGameState = gameState;
 	btnsState = BTN_ACTIVE;
+}
+
+SnakeGame::~SnakeGame() {
+	SDL_DestroyTexture(startTextTexture);
+	SDL_DestroyTexture(infoTextTexture);
+	SDL_DestroyTexture(snakeFruitTexture);
+	SDL_DestroyTexture(infoRulesTexture);
+	SDL_DestroyTexture(buttonsBackgroundTexture);
+	SDL_DestroyTexture(backgroundTexture);
+	TTF_CloseFont(font);
+	SDL_DestroyRenderer(renderer);
+	SDL_DestroyWindow(window);
+	SDL_Quit();
 }
