@@ -82,6 +82,7 @@ private:
     SDL_Texture* infoTextTexture;
     SDL_Texture* infoRulesTexture;
     SDL_Texture* backgroundTexture;
+    SDL_Texture* buttonsBackgroundTexture;
     SDL_Texture* snakeFruitTexture;
     
     SDL_Rect rectBGR;
@@ -97,10 +98,6 @@ private:
     bool isOppositeDirection(Direction d1, Direction d2);
     bool isFruitOnSnakeBodyOrAnotherFruit(int row, int col);
   
-<<<<<<< Updated upstream
-    void renderText(const char* text, int x, int y, SDL_Color textColor);
-=======
->>>>>>> Stashed changes
 public:
     SnakeGame();
     ~SnakeGame();

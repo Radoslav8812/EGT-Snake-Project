@@ -75,11 +75,12 @@ SnakeGame::SnakeGame() {
 
 	snakeFruitTexture = renderBackground("C:/Users/User/Desktop/redApple1.png");
 	infoRulesTexture = renderBackground("C:/Users/User/Desktop/nnRules1.jpg");
+	buttonsBackgroundTexture = renderBackground("C:/Users/User/Desktop/carb.png");
 	backgroundTexture = renderBackground("C:/Users/User/Desktop/nn.jpg");
 	soundManager.loadSoundEffects("C:/Users/User/Desktop/Mp3's/eatSound.wav", "C:/Users/User/Desktop/Mp3's/wallSound.mp3", "C:/Users/User/Desktop/Mp3's/click.wav");
 }
 
-bool SnakeGame::isPaused() {
+bool SnakeGame::isPaused()  {
 	return isPause;
 }
 void SnakeGame::togglePause() {
@@ -386,13 +387,10 @@ void SnakeGame::render() {
 		SDL_RenderCopy(renderer, snakeFruitTexture, NULL, &fruitRect);
 	}
 
-	SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+	//SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 	SDL_Rect buttonAreaRect = { COLS * TILE_SIZE, 0, 400, ROWS * TILE_SIZE };
 	SDL_RenderFillRect(renderer, &buttonAreaRect);
-
-	SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
-	SDL_Rect buttonAreaBorderRect = { COLS * TILE_SIZE, 0, 400, ROWS * TILE_SIZE };
-	SDL_RenderDrawRect(renderer, &buttonAreaBorderRect);
+	SDL_RenderCopy(renderer, buttonsBackgroundTexture, nullptr, &buttonAreaRect);
 
 	renderButtons();
 
