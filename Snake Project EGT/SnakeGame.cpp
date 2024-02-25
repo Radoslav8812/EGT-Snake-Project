@@ -343,7 +343,7 @@ void SnakeGame::renderButtons() {
 	}
 	SDL_RenderFillRect(renderer, &startButtonRect);
 	renderText("Start", startButtonRect.x + 75, startButtonRect.y + 33, textColor);
-	//----------------------------
+
 	int infoButtonDuration = currentTime - infoButtonClickTime;
 	if (infoButtonClicked && infoButtonDuration < 200) {
 		SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
@@ -387,7 +387,7 @@ void SnakeGame::render() {
 		SDL_RenderCopy(renderer, snakeFruitTexture, NULL, &fruitRect);
 	}
 
-	//SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+
 	SDL_Rect buttonAreaRect = { COLS * TILE_SIZE, 0, 400, ROWS * TILE_SIZE };
 	SDL_RenderFillRect(renderer, &buttonAreaRect);
 	SDL_RenderCopy(renderer, buttonsBackgroundTexture, nullptr, &buttonAreaRect);
@@ -425,7 +425,6 @@ SnakeGame::~SnakeGame() {
 
 void SnakeGame::InitStartingParameters() {
 
-	cout << "Init ?" << endl;
 	fruitsEaten = 0; 
 	points = 0;
 
