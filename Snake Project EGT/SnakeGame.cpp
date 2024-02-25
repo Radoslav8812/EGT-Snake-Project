@@ -341,7 +341,7 @@ void SnakeGame::renderButtons() {
 	}
 	SDL_RenderFillRect(renderer, &startButtonRect);
 	renderText("Start", startButtonRect.x + 75, startButtonRect.y + 33, textColor);
-	//----------------------------
+
 	int infoButtonDuration = currentTime - infoButtonClickTime;
 	if (infoButtonClicked && infoButtonDuration < 200) {
 		SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);
@@ -385,6 +385,10 @@ void SnakeGame::render() {
 		SDL_RenderCopy(renderer, snakeFruitTexture, NULL, &fruitRect);
 	}
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 46bc80f6fac089dc29c2f0cfd054ea82f78ba425
 	SDL_Rect buttonAreaRect = { COLS * TILE_SIZE, 0, 400, ROWS * TILE_SIZE };
 	SDL_RenderFillRect(renderer, &buttonAreaRect);
 	SDL_RenderCopy(renderer, buttonsBackgroundTexture, nullptr, &buttonAreaRect);
