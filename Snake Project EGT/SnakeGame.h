@@ -66,9 +66,7 @@ private:
     bool isPause;
     bool isGameRunning;
     bool inInfoMode;
-
-    
-    
+  
     Music soundManager;
     SDL_Window* window;
     SDL_Renderer* renderer;
@@ -98,6 +96,11 @@ private:
     bool isOppositeDirection(Direction d1, Direction d2);
     bool isFruitOnSnakeBodyOrAnotherFruit(int row, int col);
   
+<<<<<<< HEAD
+=======
+    void renderText(const char* text, int x, int y, SDL_Color textColor);
+
+>>>>>>> 6636dfcbb89ff7a029e7e11c9856f07d7533d92b
 public:
     SnakeGame();
     ~SnakeGame();
