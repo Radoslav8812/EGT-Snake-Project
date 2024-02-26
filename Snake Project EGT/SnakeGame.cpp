@@ -377,7 +377,7 @@ void SnakeGame::render() {
 		SDL_Rect fruitRect = { fruitsVect.at(i).second * TILE_SIZE, fruitsVect.at(i).first * TILE_SIZE, TILE_SIZE, TILE_SIZE };
 		SDL_RenderFillRect(renderer, &fruitRect);
 	}*/
-	// Render snake fruit image texture instead of filled rectangles
+	
 	for (int i = 0; i < fruitsVect.size(); i++) {
 		SDL_Rect fruitRect = { fruitsVect.at(i).second * TILE_SIZE, fruitsVect.at(i).first * TILE_SIZE, TILE_SIZE, TILE_SIZE };
 		SDL_RenderCopy(renderer, snakeFruitTexture, NULL, &fruitRect);
